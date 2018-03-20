@@ -3,8 +3,8 @@
     <main>
       <hello></hello>
       <div class="team" v-for="(value, index) in values" v-bind:key="">
-        <h5 class="team-title">{{index + 1}}. {{epl[index].team}}</h5>
-        <img class="team-crest" :src=epl[index].crest>
+        <h5 class="team-title">{{index + 1}}. {{data[index].team}}</h5>
+        <img class="team-crest" :src=data[index].crest>
         <vue-slider v-bind:class="['obj-' + index]" ref="slider" v-bind="sliderSettings" v-bind:processStyle="bgArray[index]" v-bind:sliderStyle="bgArray[index]" v-bind:tooltipStyle="bgArray[index]" v-model="values[index]"></vue-slider>
       </div>
       <div class="control">
@@ -24,7 +24,27 @@
 import Hello from './components/Hello'
 import Goodbye from './components/Goodbye'
 import vueSlider from 'vue-slider-component'
-import eplData from './data/epl'
+import epl from './data/epl'
+import nba from './data/nba_part'
+var data
+
+// Quick & Ugly-ass route by param. Redo in vue-router
+function getUrlParams (league) {
+  let hashes = league.slice(league.indexOf('?') + 1).split('&')
+  let params = {}
+  hashes.map(hash => {
+    let [key, val] = hash.split('=')
+    params[key] = decodeURIComponent(val)
+  })
+
+  return params
+}
+let param = getUrlParams(window.location.search).league
+if (!param) {
+  data = epl
+} else if (param === 'nba') {
+  data = nba
+}
 
 export default {
   name: 'app',
@@ -37,9 +57,9 @@ export default {
     // Parse data into a more barebones format. Move tall this logic to cloud function, probably
     let onlyPoints = []
     let bgArray = []
-    for (let i = 0; i < eplData.length; i++) {
-      onlyPoints.push(eplData[i].points)
-      let color = {'backgroundColor': eplData[i].primary, 'borderColor': eplData[i].primary}
+    for (let i = 0; i < data.length; i++) {
+      onlyPoints.push(data[i].points)
+      let color = {'backgroundColor': data[i].primary, 'borderColor': data[i].primary}
       bgArray.push(color)
     }
 
@@ -51,7 +71,7 @@ export default {
       values: values,
       rounds: rounds,
       teams: onlyPoints,
-      epl: eplData,
+      data: data,
       sliderSettings: {
         min: 0,
         max: max,

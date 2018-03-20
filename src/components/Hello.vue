@@ -1,15 +1,15 @@
 <template>
-  <div class="title">
+  <div class="site-title">
     <h1>{{ msg }}</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'title',
+  name: 'site-title',
   data () {
     return {
-      msg: 'Premier League animated'
+      msg: 'League table animated'
     }
   }
 }

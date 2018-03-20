@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'title',
+  name: 'site-credit',
   data () {
     return {
       msg: 'Credit where credit is due:',
