@@ -29,7 +29,7 @@ unirest.post('http://api.football-data.org/v1/competitions/445/leagueTable')
     results.push(team);
   }
   getNextDay(1,meta.matchdays)
-  fs.writeFileSync('./data.json', results , 'utf-8'); 
+  fs.writeFileSync('./data.json', JSON.stringify(results) , 'utf-8'); 
 });
 
 function getNextDay(i, matchdays) {
@@ -60,9 +60,3 @@ function download(uri, filename, callback){
   });
 };
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });

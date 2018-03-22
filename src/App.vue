@@ -2,16 +2,24 @@
   <div id="app">
     <main>
       <hello></hello>
-      <div class="team" v-for="(value, index) in values" v-bind:key="">
-        <h5 class="team-title">{{index + 1}}. {{data[index].team}}</h5>
-        <img class="team-crest" :src=data[index].crest>
-        <vue-slider v-bind:class="['obj-' + index]" ref="slider" v-bind="sliderSettings" v-bind:processStyle="bgArray[index]" v-bind:sliderStyle="bgArray[index]" v-bind:tooltipStyle="bgArray[index]" v-model="values[index]"></vue-slider>
+      <div class="bars">
+        <div class="team" v-for="(value, index) in values" v-bind:key="">
+          <h5 class="team-title">{{index + 1}}. {{data[index].team}}</h5>
+          <img class="team-crest" :src=data[index].crest>
+          <vue-slider v-bind:class="['obj-' + index]" ref="slider" v-bind="sliderSettings" v-bind:processStyle="bgArray[index]" v-bind:sliderStyle="bgArray[index]" v-bind:tooltipStyle="bgArray[index]" v-model="values[index]"></vue-slider>
+        </div>
       </div>
       <div class="control">
-        <h5 class="control-header">Controls</h5>
-        <button class="control-button" @click="play()">Play</button>
-        <button class="control-button" @click="pause()">Pause</button>
-        <button class="control-button" @click="reset()">Reset</button>
+        <div class="control-play">
+          <h5 class="control-header">Controls</h5>
+          <button class="control-button" @click="play(speed)">Play</button>
+          <button class="control-button" @click="pause()">Pause</button>
+          <button class="control-button" @click="reset()">Reset</button>
+        </div>
+        <div class="control-speed">
+          <h5 class="control-label">Animation speed:</h5>
+          <vue-slider class="control-speed-slider" ref="slider" v-bind="speedSliderSettings" v-bind:processStyle="bg" v-bind:tooltipStyle="bg" v-model="speed"></vue-slider>
+        </div>
         <h5 class="control-label">Matchday:</h5>
         <vue-slider class="control-slider" ref="slider" v-bind="valueSliderSettings" v-bind:processStyle="bg" v-bind:tooltipStyle="bg" v-model="value"></vue-slider>
       </div>
@@ -68,6 +76,7 @@ export default {
     let max = Math.max.apply(null, onlyPoints.map(function (row) { return Math.max.apply(Math, row) })) // Find the max-value for points
     return {
       value: 0,
+      speed: 3,
       values: values,
       rounds: rounds,
       teams: onlyPoints,
@@ -82,6 +91,11 @@ export default {
         max: rounds,
         'tooltip-dir': 'bottom'
       },
+      speedSliderSettings: {
+        min: 0,
+        max: 6,
+        'tooltip': 'false'
+      },
       bgArray: bgArray,
       bg: {
         'backgroundColor': 'black',
@@ -93,8 +107,11 @@ export default {
     setValue (name, num) {
       this[name] = num
     },
-    play () {
+    play (speed) {
+      let interval = (speed - 0) * ((200 - 2000) / (6 - 0)) + 2000 // map speed to interval range
+      console.log(interval)
       if (!this.playing) {
+        console.log('hm')
         this.playing = setInterval(() => {
           let num = this.value + 1
           if (num <= this.rounds) {
@@ -102,15 +119,16 @@ export default {
           } else {
             this.value = 0
           }
-        }, 1000)
+        }, interval)
       }
-    },
-    reset () {
-      clearInterval(this.playing)
-      this.value = 0
     },
     pause () {
       clearInterval(this.playing)
+      delete this.playing
+    },
+    reset () {
+      this.pause()
+      this.value = 0
     }
   },
   watch: {
@@ -119,6 +137,13 @@ export default {
         this.values = this.teams.map(function (value, index) { return 0 })
       } else if (newVal <= this.rounds) {
         this.values = this.teams.map(function (value, index) { return value[newVal - 1] })
+      }
+    },
+    speed: function (newVal, oldVal) {
+      if (this.playing) {
+        clearInterval(this.playing)
+        delete this.playing
+        this.play(newVal)
       }
     }
   }
@@ -194,6 +219,11 @@ main {
   margin-bottom: 0;
   margin-left: 0;
   text-align: left;
+}
+
+.control-speed {
+  max-width: 300px;
+  margin: auto;
 }
 
 button {
