@@ -9,15 +9,13 @@
     "logs": "firebase functions:log"
   },
   "dependencies": {
-    "canvas": "^2.0.0-alpha.11",
-    "colour-extractor": "^0.2.1",
-    "dominant-color": "0.0.1",
     "firebase-admin": "~5.8.1",
     "firebase-functions": "^0.8.1",
     "get-image-colors": "^1.8.1",
-    "node-vibrant": "^3.0.0",
+    "moment": "^2.21.0",
     "request": "^2.85.0",
-    "unirest": "^0.5.1"
+    "unirest": "^0.5.1",
+    "wtf_wikipedia": "^2.6.1"
   },
   "private": true
 }
