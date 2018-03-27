@@ -50,16 +50,24 @@ function getNextDay(i) {
     if(ones.length < results.length - 1) {
       getNextDay(i + 1);
     } else {
-      fs.writeFileSync('./nhl.json', JSON.stringify(results) , 'utf-8'); 
-      console.log(results);
+      getLogos(function(res){
+        fs.writeFileSync('./nhl.json', JSON.stringify(res) , 'utf-8'); 
+        //console.log(results);
+      })
     }
   })
 }
 
-for (let i in results) {
-  wtf.from_api(results[i].team, 'en', function(wikimarkup) {
-    var data = wtf.parse(wikimarkup);
-    results[i].crest = "https://en.wikipedia.org/wiki/Special:Redirect/file" + data.infoboxes[0].data.logo_image;
-    // console.log(data.infoboxes[0].data.team_colors);
-  });
+function getLogos(callback) {
+  for (let i in results) {
+    wtf.from_api(results[i].team, 'en', function(wikimarkup) {
+      var data = wtf.parse(wikimarkup);
+      results[i].crest = "https://en.wikipedia.org/wiki/Special:Redirect/file/" + data.infoboxes[0].data.logo_image.text;
+      let colors = data.infoboxes[0].data.team_colors.text.split(",");
+      results[i].primary = colors[0];
+      results[i].secondary = colors[1];
+      console.log(i + " logos")
+      callback(results)
+    });
+  }
 }
