@@ -1,3 +1,5 @@
+<!-- This component is huge. Gotta break it down nice nice -->
+
 <template>
   <div id="app">
     <main>
@@ -34,32 +36,6 @@ import vueSlider from 'vue-slider-component'
 import epl from './data/epl'
 import nba from './data/nba_part'
 import nhl from './data/nhl'
-var data
-
-// Quick & Ugly-ass route by param. Redo in vue-router
-function getUrlParams (league) {
-  let hashes = league.slice(league.indexOf('?') + 1).split('&')
-  let params = {}
-  hashes.map(hash => {
-    let [key, val] = hash.split('=')
-    params[key] = decodeURIComponent(val)
-  })
-
-  return params
-}
-
-let param = getUrlParams(window.location.search).league
-let league
-if (!param) {
-  data = epl
-  league = 'Premier League'
-} else if (param === 'nba') {
-  data = nba
-  league = 'NBA'
-} else if (param === 'nhl') {
-  data = nhl
-  league = 'NHL'
-}
 
 export default {
   name: 'app',
@@ -73,25 +49,25 @@ export default {
     let onlyPoints = []
     let bgArray = []
     let bgImage = []
-    for (let i = 0; i < data.length; i++) {
-      onlyPoints.push(data[i].points)
+    for (let i = 0; i < this.data.length; i++) {
+      onlyPoints.push(this.data[i].points)
       let color = {
-        'backgroundColor': data[i].primary,
-        'borderColor': data[i].primary,
+        'backgroundColor': this.data[i].primary,
+        'borderColor': this.data[i].primary,
         'padding': '2px 2px',
         'minHeight': '5px',
         'borderRadius': '50%'
       }
       let dot = {
-        'backgroundImage': 'url("' + data[i].crest + '")',
+        'backgroundImage': 'url("' + this.data[i].crest + '")',
         'backgroundSize': 'contain',
         'backgroundRepeat': 'no-repeat',
         'backgroundPosition': 'center',
         'backgroundColor': 'rgba(0,0,0,0)',
         'borderRadius': '0',
         'top': '-11px'
-        // 'backgroundColor': data[i].primary,
-        // 'borderColor': data[i].primary
+        // 'backgroundColor': this.data[i].primary,
+        // 'borderColor': this.data[i].primary
       }
       bgImage.push(dot)
       bgArray.push(color)
@@ -106,8 +82,8 @@ export default {
       values: values,
       rounds: rounds,
       teams: onlyPoints,
-      data: data,
-      league: league,
+      data: this.data,
+      league: this.league,
       sliderSettings: {
         min: 0,
         max: max,
@@ -174,6 +150,22 @@ export default {
         delete this.playing
         this.play(newVal)
       }
+    }
+  },
+  beforeCreate: function () {
+    let route = this.$route.path
+    if (route === '/' || route === '/epl') {
+      console.log(this)
+      this.data = epl
+      this.league = 'Premier League'
+    } else if (route === '/nba') {
+      this.data = nba
+      this.league = 'NBA'
+    } else if (route === '/nhl') {
+      this.data = nhl
+      this.league = 'NHL'
+    } else {
+      console.log('Oh noes :(')
     }
   }
 }
