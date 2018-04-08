@@ -1,15 +1,15 @@
 <template>
   <div class="site-title">
-    <h1>{{ msg }}</h1>
+    <h1>{{ title }} animated</h1>
   </div>
 </template>
 
 <script>
 export default {
   name: 'site-title',
+  props: ['title'],
   data () {
     return {
-      msg: 'League table animated'
     }
   }
 }

@@ -1,12 +1,11 @@
 
-
-// https://statsapi.web.nhl.com/api/v1/standings?date=2018-03-26
-
 const unirest = require('unirest');
 const moment = require('moment');
 const fs = require('fs');
 const wtf = require('wtf_wikipedia');
-
+const namedColors = require('color-name-list');
+const colorboxer = require('./colorboxer.js');
+const request = require('request');
 
 let results = [];
 let meta = {'date' : moment().format("YYYY-MM-DD")};
@@ -14,15 +13,21 @@ unirest.post("https://statsapi.web.nhl.com/api/v1/standings?date=" + meta.date)
 .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 .method('GET')
 .end(function (response) {
-  // console.log(response)
   for (let i in response.body.records) {
     for (let n in response.body.records[i].teamRecords) {
-      let team = {"team": response.body.records[i].teamRecords[n].team.name, "crest:": "", "points": [response.body.records[i].teamRecords[n].points], "matchesLeft": response.body.records[i].teamRecords[n].gamesPlayed};
+      let team = {"team": response.body.records[i].teamRecords[n].team.name, "points": [response.body.records[i].teamRecords[n].points], "matchesLeft": response.body.records[i].teamRecords[n].gamesPlayed};
       results.push(team);
     }
   }
-  getNextDay(1)
+  results.sort(function(a, b){
+    if (a.points[0] > b.points[0])
+      return -1;
+    if (a.points[0] < b.points[0])
+      return 1;
+    return 0;
+  })
   console.log(results)
+  getNextDay(1)
 })
 
 function getNextDay(i) {
@@ -60,12 +65,14 @@ function getNextDay(i) {
 
 function getLogos(callback) {
   for (let i in results) {
+    results[i].points = results[i].points.reverse();
+    colorboxer.get_colors(results[i].team, function(colors){
+      results[i].primary = colors.primary.hex;
+      results[i].secondary = colors.secondary.hex; 
+    });
     wtf.from_api(results[i].team, 'en', function(wikimarkup) {
       var data = wtf.parse(wikimarkup);
       results[i].crest = "https://en.wikipedia.org/wiki/Special:Redirect/file/" + data.infoboxes[0].data.logo_image.text;
-      let colors = data.infoboxes[0].data.team_colors.text.split(",");
-      results[i].primary = colors[0];
-      results[i].secondary = colors[1];
       console.log(i + " logos")
       callback(results)
     });

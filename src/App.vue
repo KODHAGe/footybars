@@ -1,17 +1,16 @@
 <template>
   <div id="app">
     <main>
-      <hello></hello>
+      <hello v-bind:title="league"></hello>
       <div class="bars">
         <div class="team" v-for="(value, index) in values" v-bind:key="">
           <h5 class="team-title">{{index + 1}}. {{data[index].team}}</h5>
-          <img class="team-crest" :src=data[index].crest>
-          <vue-slider v-bind:class="['obj-' + index]" ref="slider" v-bind="sliderSettings" v-bind:processStyle="bgArray[index]" v-bind:sliderStyle="bgArray[index]" v-bind:tooltipStyle="bgArray[index]" v-model="values[index]"></vue-slider>
+          <!--<img class="team-crest" :src=data[index].crest>-->
+          <vue-slider v-bind:class="['obj-' + index]" ref="slider" v-bind="sliderSettings" v-bind:processStyle="bgArray[index]" v-bind:sliderStyle="bgImage[index]" v-bind:tooltipStyle="bgArray[index]" v-model="values[index]"></vue-slider>
         </div>
       </div>
       <div class="control">
         <div class="control-play">
-          <h5 class="control-header">Controls</h5>
           <button class="control-button" @click="play(speed)">Play</button>
           <button class="control-button" @click="pause()">Pause</button>
           <button class="control-button" @click="reset()">Reset</button>
@@ -20,7 +19,7 @@
           <h5 class="control-label">Animation speed:</h5>
           <vue-slider class="control-speed-slider" ref="slider" v-bind="speedSliderSettings" v-bind:processStyle="bg" v-bind:tooltipStyle="bg" v-model="speed"></vue-slider>
         </div>
-        <h5 class="control-label">Matchday:</h5>
+        <h5 class="control-label">Games played:</h5>
         <vue-slider class="control-slider" ref="slider" v-bind="valueSliderSettings" v-bind:processStyle="bg" v-bind:tooltipStyle="bg" v-model="value"></vue-slider>
       </div>
       <goodbye></goodbye>
@@ -34,6 +33,7 @@ import Goodbye from './components/Goodbye'
 import vueSlider from 'vue-slider-component'
 import epl from './data/epl'
 import nba from './data/nba_part'
+import nhl from './data/nhl'
 var data
 
 // Quick & Ugly-ass route by param. Redo in vue-router
@@ -47,11 +47,18 @@ function getUrlParams (league) {
 
   return params
 }
+
 let param = getUrlParams(window.location.search).league
+let league
 if (!param) {
   data = epl
+  league = 'Premier League'
 } else if (param === 'nba') {
   data = nba
+  league = 'NBA'
+} else if (param === 'nhl') {
+  data = nhl
+  league = 'NHL'
 }
 
 export default {
@@ -65,9 +72,28 @@ export default {
     // Parse data into a more barebones format. Move tall this logic to cloud function, probably
     let onlyPoints = []
     let bgArray = []
+    let bgImage = []
     for (let i = 0; i < data.length; i++) {
       onlyPoints.push(data[i].points)
-      let color = {'backgroundColor': data[i].primary, 'borderColor': data[i].primary}
+      let color = {
+        'backgroundColor': data[i].primary,
+        'borderColor': data[i].primary,
+        'padding': '2px 2px',
+        'minHeight': '5px',
+        'borderRadius': '50%'
+      }
+      let dot = {
+        'backgroundImage': 'url("' + data[i].crest + '")',
+        'backgroundSize': 'contain',
+        'backgroundRepeat': 'no-repeat',
+        'backgroundPosition': 'center',
+        'backgroundColor': 'rgba(0,0,0,0)',
+        'borderRadius': '0',
+        'top': '-11px'
+        // 'backgroundColor': data[i].primary,
+        // 'borderColor': data[i].primary
+      }
+      bgImage.push(dot)
       bgArray.push(color)
     }
 
@@ -81,10 +107,12 @@ export default {
       rounds: rounds,
       teams: onlyPoints,
       data: data,
+      league: league,
       sliderSettings: {
         min: 0,
         max: max,
-        'tooltip-dir': 'left'
+        'tooltip-dir': 'left',
+        'dot-size': 24
       },
       valueSliderSettings: {
         min: 0,
@@ -97,6 +125,7 @@ export default {
         'tooltip': 'false'
       },
       bgArray: bgArray,
+      bgImage: bgImage,
       bg: {
         'backgroundColor': 'black',
         'borderColor': 'black'
@@ -186,6 +215,7 @@ main {
   left: 0;
   width: 200px;
   margin-left: 50px;
+  margin-right: 10px;
 }
 
 .team-crest {
@@ -201,8 +231,24 @@ main {
   font-weight: bolder;
 }
 
+.vue-slider {
+  height: 1px!important;
+}
+
 .team > .vue-slider-component .vue-slider-dot {
   box-shadow: 0 0 0 0;
+}
+
+.vue-slider-component .vue-slider-tooltip-wrap.vue-slider-tooltip-left .vue-slider-tooltip:before {
+  right: -9px;
+}
+
+.vue-slider-process {
+  top: -1px!important;
+  padding: 1px!important;
+  min-height: 2px!important;
+  height: 2px!important;
+  border-radius: 0!important;
 }
 
 .team h5 {

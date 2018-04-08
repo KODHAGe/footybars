@@ -1,7 +1,7 @@
-[
+const nhlData = [
   {
-    "team": "Nashville Predators",
-    "points": [
+    'team': 'Nashville Predators',
+    'points': [
       0,
       0,
       2,
@@ -79,15 +79,15 @@
       107,
       109
     ],
-    "matchesLeft": 1,
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Nashville Predators Logo (2011).svg",
-    "primary": "#FFB81C",
-    "secondary": "#041E42"
+    'matchesLeft': 1,
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Nashville Predators Logo (2011).svg',
+    'primary': '#FFB81C',
+    'secondary': '#041E42'
   },
   {
-    "team": "Tampa Bay Lightning",
-    "points": [
+    'team': 'Tampa Bay Lightning',
+    'points': [
       2,
       2,
       4,
@@ -165,15 +165,15 @@
       106,
       106
     ],
-    "matchesLeft": 1,
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Tampa Bay Lightning Logo 2011.svg",
-    "primary": "#00205B",
-    "secondary": "#FFFFFF"
+    'matchesLeft': 1,
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Tampa Bay Lightning Logo 2011.svg',
+    'primary': '#00205B',
+    'secondary': '#FFFFFF'
   },
   {
-    "team": "Boston Bruins",
-    "points": [
+    'team': 'Boston Bruins',
+    'points': [
       2,
       2,
       2,
@@ -250,15 +250,15 @@
       104,
       105
     ],
-    "matchesLeft": 1,
-    "primary": "#111111",
-    "secondary": "#FCB514",
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Boston Bruins.svg"
+    'matchesLeft': 1,
+    'primary': '#111111',
+    'secondary': '#FCB514',
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Boston Bruins.svg'
   },
   {
-    "team": "Winnipeg Jets",
-    "points": [
+    'team': 'Winnipeg Jets',
+    'points': [
       0,
       0,
       2,
@@ -336,15 +336,15 @@
       102,
       104
     ],
-    "matchesLeft": 1,
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Winnipeg Jets Logo 2011.svg",
-    "primary": "#041E41",
-    "secondary": "#0060A5"
+    'matchesLeft': 1,
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Winnipeg Jets Logo 2011.svg',
+    'primary': '#041E41',
+    'secondary': '#0060A5'
   },
   {
-    "team": "Vegas Golden Knights",
-    "points": [
+    'team': 'Vegas Golden Knights',
+    'points': [
       2,
       4,
       6,
@@ -422,15 +422,15 @@
       101,
       103
     ],
-    "matchesLeft": 1,
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Vegas Golden Knights logo.svg",
-    "primary": "#333F42",
-    "secondary": "#B4975A"
+    'matchesLeft': 1,
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Vegas Golden Knights logo.svg',
+    'primary': '#333F42',
+    'secondary': '#B4975A'
   },
   {
-    "team": "San Jose Sharks",
-    "points": [
+    'team': 'San Jose Sharks',
+    'points': [
       0,
       0,
       2,
@@ -509,15 +509,15 @@
       97,
       98
     ],
-    "matchesLeft": 1,
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/SanJoseSharksLogo.svg",
-    "primary": "#006D75",
-    "secondary": "#EA7200"
+    'matchesLeft': 1,
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/SanJoseSharksLogo.svg',
+    'primary': '#006D75',
+    'secondary': '#EA7200'
   },
   {
-    "team": "Washington Capitals",
-    "points": [
+    'team': 'Washington Capitals',
+    'points': [
       2,
       4,
       5,
@@ -595,15 +595,15 @@
       95,
       97
     ],
-    "matchesLeft": 1,
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Washington Capitals.svg",
-    "primary": "#CF0A2C",
-    "secondary": "#FFFFFF"
+    'matchesLeft': 1,
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Washington Capitals.svg',
+    'primary': '#CF0A2C',
+    'secondary': '#FFFFFF'
   },
   {
-    "team": "Toronto Maple Leafs",
-    "points": [
+    'team': 'Toronto Maple Leafs',
+    'points': [
       2,
       4,
       6,
@@ -681,15 +681,15 @@
       97,
       97
     ],
-    "matchesLeft": 1,
-    "primary": "#002868",
-    "secondary": "#FFFFFF",
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Toronto Maple Leafs 2016 logo.svg"
+    'matchesLeft': 1,
+    'primary': '#002868',
+    'secondary': '#FFFFFF',
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Toronto Maple Leafs 2016 logo.svg'
   },
   {
-    "team": "Minnesota Wild",
-    "points": [
+    'team': 'Minnesota Wild',
+    'points': [
       0,
       1,
       3,
@@ -767,15 +767,15 @@
       93,
       94
     ],
-    "matchesLeft": 1,
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Minnesota Wild.svg",
-    "primary": "#AF1E24",
-    "secondary": "#024930"
+    'matchesLeft': 1,
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Minnesota Wild.svg',
+    'primary': '#AF1E24',
+    'secondary': '#024930'
   },
   {
-    "team": "Pittsburgh Penguins",
-    "points": [
+    'team': 'Pittsburgh Penguins',
+    'points': [
       1,
       1,
       3,
@@ -854,15 +854,15 @@
       92,
       92
     ],
-    "matchesLeft": 1,
-    "primary": "#000000",
-    "secondary": "#FCB514",
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Pittsburgh Penguins logo (2016).svg"
+    'matchesLeft': 1,
+    'primary': '#000000',
+    'secondary': '#FCB514',
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Pittsburgh Penguins logo (2016).svg'
   },
   {
-    "team": "Anaheim Ducks",
-    "points": [
+    'team': 'Anaheim Ducks',
+    'points': [
       2,
       3,
       3,
@@ -941,15 +941,15 @@
       91,
       91
     ],
-    "matchesLeft": 1,
-    "primary": "#111111",
-    "secondary": "#B5985A",
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Anaheim_Ducks.svg"
+    'matchesLeft': 1,
+    'primary': '#111111',
+    'secondary': '#B5985A',
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Anaheim_Ducks.svg'
   },
   {
-    "team": "Los Angeles Kings",
-    "points": [
+    'team': 'Los Angeles Kings',
+    'points': [
       2,
       4,
       5,
@@ -1028,15 +1028,15 @@
       89,
       91
     ],
-    "matchesLeft": 1,
-    "primary": "#ACAEA9",
-    "secondary": "#111111",
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Los Angeles Kings Logo (2011).svg"
+    'matchesLeft': 1,
+    'primary': '#ACAEA9',
+    'secondary': '#111111',
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Los Angeles Kings Logo (2011).svg'
   },
   {
-    "team": "Columbus Blue Jackets",
-    "points": [
+    'team': 'Columbus Blue Jackets',
+    'points': [
       2,
       2,
       4,
@@ -1115,15 +1115,15 @@
       89,
       91
     ],
-    "matchesLeft": 1,
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Columbus Blue Jackets logo.svg",
-    "primary": "#002654",
-    "secondary": "#CE1126"
+    'matchesLeft': 1,
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Columbus Blue Jackets logo.svg',
+    'primary': '#002654',
+    'secondary': '#CE1126'
   },
   {
-    "team": "St. Louis Blues",
-    "points": [
+    'team': 'St. Louis Blues',
+    'points': [
       2,
       4,
       6,
@@ -1201,15 +1201,15 @@
       89,
       91
     ],
-    "matchesLeft": 1,
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/St. Louis Blues logo.svg",
-    "primary": "#002F87",
-    "secondary": "#FCB514"
+    'matchesLeft': 1,
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/St. Louis Blues logo.svg',
+    'primary': '#002F87',
+    'secondary': '#FCB514'
   },
   {
-    "team": "Philadelphia Flyers",
-    "points": [
+    'team': 'Philadelphia Flyers',
+    'points': [
       2,
       2,
       4,
@@ -1288,15 +1288,15 @@
       89,
       90
     ],
-    "matchesLeft": 1,
-    "primary": "#F74902",
-    "secondary": "#000000",
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Philadelphia Flyers.svg"
+    'matchesLeft': 1,
+    'primary': '#F74902',
+    'secondary': '#000000',
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Philadelphia Flyers.svg'
   },
   {
-    "team": "Colorado Avalanche",
-    "points": [
+    'team': 'Colorado Avalanche',
+    'points': [
       2,
       2,
       4,
@@ -1374,15 +1374,15 @@
       90,
       90
     ],
-    "matchesLeft": 1,
-    "primary": "#6F263D",
-    "secondary": "#236192",
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Colorado Avalanche logo.svg"
+    'matchesLeft': 1,
+    'primary': '#6F263D',
+    'secondary': '#236192',
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Colorado Avalanche logo.svg'
   },
   {
-    "team": "New Jersey Devils",
-    "points": [
+    'team': 'New Jersey Devils',
+    'points': [
       2,
       4,
       6,
@@ -1460,15 +1460,15 @@
       86,
       88
     ],
-    "matchesLeft": 1,
-    "primary": "#CE1126",
-    "secondary": "#000000",
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/New Jersey Devils logo.svg"
+    'matchesLeft': 1,
+    'primary': '#CE1126',
+    'secondary': '#000000',
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/New Jersey Devils logo.svg'
   },
   {
-    "team": "Dallas Stars",
-    "points": [
+    'team': 'Dallas Stars',
+    'points': [
       0,
       0,
       2,
@@ -1547,15 +1547,15 @@
       84,
       86
     ],
-    "matchesLeft": 1,
-    "primary": "#006847",
-    "secondary": "#111111",
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Dallas Stars logo (2013).svg"
+    'matchesLeft': 1,
+    'primary': '#006847',
+    'secondary': '#111111',
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Dallas Stars logo (2013).svg'
   },
   {
-    "team": "Florida Panthers",
-    "points": [
+    'team': 'Florida Panthers',
+    'points': [
       0,
       2,
       4,
@@ -1631,15 +1631,15 @@
       83,
       85
     ],
-    "matchesLeft": 1,
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Florida Panthers 2016 logo.svg",
-    "primary": "#C8102E",
-    "secondary": "#041E42"
+    'matchesLeft': 1,
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Florida Panthers 2016 logo.svg',
+    'primary': '#C8102E',
+    'secondary': '#041E42'
   },
   {
-    "team": "Calgary Flames",
-    "points": [
+    'team': 'Calgary Flames',
+    'points': [
       0,
       2,
       4,
@@ -1718,15 +1718,15 @@
       80,
       80
     ],
-    "matchesLeft": 1,
-    "primary": "#CE1126",
-    "secondary": "#F3BC52",
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Calgary Flames Logo.svg"
+    'matchesLeft': 1,
+    'primary': '#CE1126',
+    'secondary': '#F3BC52',
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Calgary Flames Logo.svg'
   },
   {
-    "team": "Carolina Hurricanes",
-    "points": [
+    'team': 'Carolina Hurricanes',
+    'points': [
       2,
       3,
       3,
@@ -1805,15 +1805,15 @@
       79,
       79
     ],
-    "matchesLeft": 1,
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Carolina Hurricanes.svg",
-    "primary": "#CC0000",
-    "secondary": "#FFFFFF"
+    'matchesLeft': 1,
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Carolina Hurricanes.svg',
+    'primary': '#CC0000',
+    'secondary': '#FFFFFF'
   },
   {
-    "team": "New York Rangers",
-    "points": [
+    'team': 'New York Rangers',
+    'points': [
       0,
       0,
       2,
@@ -1891,15 +1891,15 @@
       74,
       74
     ],
-    "matchesLeft": 1,
-    "primary": "#0038A8",
-    "secondary": "#CE1126",
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/New York Rangers.svg"
+    'matchesLeft': 1,
+    'primary': '#0038A8',
+    'secondary': '#CE1126',
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/New York Rangers.svg'
   },
   {
-    "team": "New York Islanders",
-    "points": [
+    'team': 'New York Islanders',
+    'points': [
       0,
       2,
       3,
@@ -1978,15 +1978,15 @@
       72,
       74
     ],
-    "matchesLeft": 1,
-    "primary": "#00539B",
-    "secondary": "#F47D30",
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Logo New York Islanders.svg"
+    'matchesLeft': 1,
+    'primary': '#00539B',
+    'secondary': '#F47D30',
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Logo New York Islanders.svg'
   },
   {
-    "team": "Edmonton Oilers",
-    "points": [
+    'team': 'Edmonton Oilers',
+    'points': [
       2,
       2,
       2,
@@ -2065,15 +2065,15 @@
       74,
       74
     ],
-    "matchesLeft": 1,
-    "primary": "#FF4C00",
-    "secondary": "#041E41",
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Logo Edmonton Oilers.svg"
+    'matchesLeft': 1,
+    'primary': '#FF4C00',
+    'secondary': '#041E41',
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Logo Edmonton Oilers.svg'
   },
   {
-    "team": "Chicago Blackhawks",
-    "points": [
+    'team': 'Chicago Blackhawks',
+    'points': [
       2,
       4,
       5,
@@ -2152,15 +2152,15 @@
       71,
       72
     ],
-    "matchesLeft": 1,
-    "primary": "#CF0A2C",
-    "secondary": "#FFFFFF",
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Chicago Blackhawks logo.svg"
+    'matchesLeft': 1,
+    'primary': '#CF0A2C',
+    'secondary': '#FFFFFF',
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Chicago Blackhawks logo.svg'
   },
   {
-    "team": "Montréal Canadiens",
-    "points": [
+    'team': 'Montréal Canadiens',
+    'points': [
       2,
       2,
       2,
@@ -2239,13 +2239,15 @@
       66,
       68
     ],
-    "matchesLeft": 1,
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Montreal Canadiens.svg"
+    'matchesLeft': 1,
+    'primary': '#AF1E2D',
+    'secondary': '#FFFFFF',
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Montreal Canadiens.svg'
   },
   {
-    "team": "Detroit Red Wings",
-    "points": [
+    'team': 'Detroit Red Wings',
+    'points': [
       2,
       4,
       4,
@@ -2324,15 +2326,15 @@
       65,
       67
     ],
-    "matchesLeft": 1,
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Detroit Red Wings logo.svg",
-    "primary": "#CE1126",
-    "secondary": "#FFFFFF"
+    'matchesLeft': 1,
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Detroit Red Wings logo.svg',
+    'primary': '#CE1126',
+    'secondary': '#FFFFFF'
   },
   {
-    "team": "Vancouver Canucks",
-    "points": [
+    'team': 'Vancouver Canucks',
+    'points': [
       2,
       3,
       3,
@@ -2411,15 +2413,15 @@
       63,
       65
     ],
-    "matchesLeft": 1,
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Vancouver Canucks logo.svg",
-    "primary": "#001F5B",
-    "secondary": "#008852"
+    'matchesLeft': 1,
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Vancouver Canucks logo.svg',
+    'primary': '#001F5B',
+    'secondary': '#008852'
   },
   {
-    "team": "Ottawa Senators",
-    "points": [
+    'team': 'Ottawa Senators',
+    'points': [
       1,
       2,
       4,
@@ -2497,15 +2499,15 @@
       63,
       63
     ],
-    "matchesLeft": 1,
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Ottawa Senators.svg",
-    "primary": "#CE1126",
-    "secondary": "#000000"
+    'matchesLeft': 1,
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Ottawa Senators.svg',
+    'primary': '#CE1126',
+    'secondary': '#000000'
   },
   {
-    "team": "Arizona Coyotes",
-    "points": [
+    'team': 'Arizona Coyotes',
+    'points': [
       0,
       1,
       1,
@@ -2583,15 +2585,15 @@
       61,
       63
     ],
-    "matchesLeft": 1,
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Arizona Coyotes.svg",
-    "primary": "#8C2633",
-    "secondary": "#E2D6B5"
+    'matchesLeft': 1,
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Arizona Coyotes.svg',
+    'primary': '#8C2633',
+    'secondary': '#E2D6B5'
   },
   {
-    "team": "Buffalo Sabres",
-    "points": [
+    'team': 'Buffalo Sabres',
+    'points': [
       1,
       1,
       1,
@@ -2669,10 +2671,12 @@
       58,
       60
     ],
-    "matchesLeft": 1,
-    "crest":
-      "https://en.wikipedia.org/wiki/Special:Redirect/file/Buffalo Sabres Logo.svg",
-    "primary": "#002654",
-    "secondary": "#FCB514"
+    'matchesLeft': 1,
+    'crest':
+      'https://en.wikipedia.org/wiki/Special:Redirect/file/Buffalo Sabres Logo.svg',
+    'primary': '#002654',
+    'secondary': '#FCB514'
   }
 ]
+
+export default nhlData

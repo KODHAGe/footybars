@@ -104,7 +104,29 @@ const webpackConfig = merge(baseWebpackConfig, {
       filename: 'service-worker.js',
       staticFileGlobs: ['dist/**/*.{js,html,css}'],
       minify: true,
-      stripPrefix: 'dist/'
+      stripPrefix: 'dist/',
+      runtimeCaching: [
+        {
+          urlPattern: /^https:\/\/en.wikipedia.org/,
+          handler: 'fastest',
+          options: {
+            cache: {
+              maxEntries: 1000,
+              name: 'wikipedia-cache'
+            }
+          }
+        },
+        {
+          urlPattern: /^https:\/\/upload.wikimedia.org/,
+          handler: 'fastest',
+          options: {
+            cache: {
+              maxEntries: 1000,
+              name: 'wikimedia-cache'
+            }
+          }
+        }
+        ]
     })
   ]
 })
