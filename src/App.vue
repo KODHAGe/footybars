@@ -240,7 +240,7 @@ main {
 }
 
 .vue-slider-component .vue-slider-tooltip-wrap.vue-slider-tooltip-left .vue-slider-tooltip:before {
-  right: -9px;
+  right: -9px!important;
 }
 
 .vue-slider-process {
