@@ -15,7 +15,7 @@ unirest.post("https://statsapi.web.nhl.com/api/v1/standings?date=" + meta.date)
 .end(function (response) {
   for (let i in response.body.records) {
     for (let n in response.body.records[i].teamRecords) {
-      let team = {"team": response.body.records[i].teamRecords[n].team.name, "points": [response.body.records[i].teamRecords[n].points], "matchesLeft": response.body.records[i].teamRecords[n].gamesPlayed};
+      let team = {"team": removeAccents(response.body.records[i].teamRecords[n].team.name), "points": [response.body.records[i].teamRecords[n].points], "matchesLeft": response.body.records[i].teamRecords[n].gamesPlayed};
       results.push(team);
     }
   }
@@ -40,13 +40,18 @@ function getNextDay(i) {
       for (let i in response.body.records) {
         for (let n in response.body.records[i].teamRecords) {
           let team = results.find( function(element) {
-            return element.team == response.body.records[i].teamRecords[n].team.name;
+            console.log(removeAccents(element.team))
+            return removeAccents(element.team) === removeAccents(response.body.records[i].teamRecords[n].team.name)
+            console.log(removeAccents(response.body.records[i].teamRecords[n].team.name))
           })
           if(team.matchesLeft === 1) {
             ones.push(1);
           } else if(team.matchesLeft > response.body.records[i].teamRecords[n].gamesPlayed) {
             team.points.push(response.body.records[i].teamRecords[n].points)
             team.matchesLeft = response.body.records[i].teamRecords[n].gamesPlayed;
+          } else {
+            console.log('huh')
+            console.log(team)
           }
         }
       }
@@ -77,4 +82,21 @@ function getLogos(callback) {
       callback(results)
     });
   }
+}
+
+// https://gist.github.com/alisterlf/3490957#file-gistfile1-txt-L11
+function removeAccents(strAccents) {
+  var strAccents = strAccents.split('');
+  var strAccentsOut = new Array();
+  var strAccentsLen = strAccents.length;
+  var accents = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
+  var accentsOut = "AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz";
+  for (var y = 0; y < strAccentsLen; y++) {
+    if (accents.indexOf(strAccents[y]) != -1) {
+      strAccentsOut[y] = accentsOut.substr(accents.indexOf(strAccents[y]), 1);
+    } else
+      strAccentsOut[y] = strAccents[y];
+  }
+  strAccentsOut = strAccentsOut.join('');
+  return strAccentsOut;
 }
